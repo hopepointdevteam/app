@@ -1,0 +1,319 @@
+@font-face {
+	font-family: "Cen-Gothic";
+	src: url('./fonts/century_gothic.eot'); /* IE */
+	src: url('./fonts/century_gothic.eot?#iefix') format('embedded-opentype'), 
+			url('./fonts/century-gothic.ttf') format('truetype');
+  
+}
+body, html {
+	font-family: 'Cen-Gothic', Fallback, sans-serif;
+	line-height: 1.231;
+	background: url("/assets/images/backgrounds/main_bg.jpg");
+  background-attachment: fixed;
+  background-position: center;
+	background-size: cover;
+	@include media-breakpoint-only(xs) {
+		p {
+			font-size: 14px;
+		}
+	}
+	@include media-breakpoint-only(sm) {
+		p{
+			font-size: 14px;
+		}		
+	}
+	@include media-breakpoint-only(md) {
+		p {
+			font-size: 16px;
+		}
+		h5 {
+			font-size: 1rem;
+		}
+	}
+}
+a {
+	color: #FFF;
+	text-decoration: none;
+}
+.link { 
+	color: #000;
+	text-decoration: none;
+	font-weight: 500;
+}
+.link:focus, .link:hover {
+	color: #000;
+	font-weight: 700;
+	text-decoration: none;
+}
+a:link, a:hover, a:visited, a:active {
+	text-decoration: none;
+}
+.page-section {
+  margin-top: 5rem;
+	margin-bottom: 5rem;
+	.intro {
+		position: relative;
+		.intro-text, .intro-text-right {
+			background-color: rgba(204, 204, 204, .8);
+			@include media-breakpoint-only(sm) {
+				margin-top: 0;
+				width: 100%;
+			}
+			@include media-breakpoint-only(md) {
+				margin-top: 2%;
+				width: 100%;
+			}
+			@include media-breakpoint-only(lg){
+				margin-top: 20%;
+				width: 60%;
+				position: absolute;
+			}
+			@include media-breakpoint-only(xl){
+				width: 60%;
+				position: absolute;
+				margin-top: 25%;
+			}
+		}
+		.intro-text {
+			@include media-breakpoint-only(lg) {
+				left: 0;
+			}
+			@include media-breakpoint-only(xl) {
+				left: 0;
+			}
+		}
+		.intro-text-right {
+			@include media-breakpoint-only(lg) {
+				right: 0;
+			}
+			@include media-breakpoint-only(xl) {
+				right: 0;
+			}
+		}
+		.intro-img, .intro-img-left {
+			@include media-breakpoint-only(sm) {
+				width: 100%;
+			}
+			@include media-breakpoint-only(md){
+				width: 100%;
+			}
+			@include media-breakpoint-only(lg){
+				width: 75%;
+			}
+			@include media-breakpoint-only(xl){
+				width: 75%;
+			}
+		}
+		.intro-img {
+			@include media-breakpoint-only(lg) {
+				float: right;
+			}
+			@include media-breakpoint-only(xl) {
+				float: right;
+			}
+		}
+		.intro-img-left {
+			@include media-breakpoint-only(lg) {
+    		float: left;
+			}
+			@include media-breakpoint-only(xl) {
+    		float: left;
+			}
+		}
+		.intro-button {
+			width: 100%;
+			left: 0;
+			position: absolute;
+			bottom: -2rem;
+		}
+		.section-heading {
+			text-transform: uppercase;
+			.section-heading-upper {
+				display: block;
+				font-size: 1rem;
+				font-weight: 800;
+			}
+			.section-heading-lower {
+				display: block;
+				font-size: 3rem;
+				font-weight: 100;
+			}
+		}
+	}	
+	.btn {
+		box-shadow: 0px 3px 3px 0px rgba(33, 37, 41, 0.1);
+	}	
+	.btn-xl {
+		font-weight: 700;
+		font-size: 1.2rem;
+		padding-top: 1.5rem;
+		padding-bottom: 1.5rem;
+		padding-left: 2rem;
+		padding-right: 2rem;
+	}	
+	.cta {
+		padding-top: 2rem;
+		padding-bottom: 2rem;
+		background-color: rgba(166, 166, 166, 0.9);
+		.cta-inner {
+			position: relative;
+			padding: 3rem;
+			margin: 0.5rem;
+			background-color: rgba(255, 255, 255, 0.85);
+		}
+		.cta-inner:before {
+			border-radius: 0.5rem;
+			content: '';
+			position: absolute;
+			top: -0.5rem;
+			bottom: -0.5rem;
+			left: -0.5rem;
+			right: -0.5rem;
+			border: 0.25rem solid rgba(255, 255, 255, 0.85);
+		}
+	}	
+	.about-heading {
+		.about-heading-img {
+			position: relative;
+			z-index: 0;
+			height: 400px;
+			width: 100%;
+		}
+		.about-heading-content {
+			margin-top: -7rem;
+			position: relative;
+			width: 75%;
+			background-color: rgba(166, 166, 166, .9);
+			@include media-breakpoint-only(sm) {
+				margin-top: 2%;
+				width: 100vw;
+			}
+			.connection-container {
+				.card-body {
+					background-color: rgba(166, 166, 166, .9);
+				}
+			}
+			
+			.section-heading {
+				text-transform: uppercase;
+				.section-heading-upper {
+					display: block;
+					font-size: 1rem;
+					font-weight: 800;
+				}
+				.section-heading-lower {
+					display: block;
+					font-size: 3rem;
+					font-weight: 100;
+				}
+			}
+		}
+	}
+	.card-columns {
+		@include media-breakpoint-only(sm){
+			column-count: 1;
+			-webkit-column-count: 1;
+		}
+	}
+	.team-block {
+		margin-bottom: 20px;
+		@include media-breakpoint-only(xs) {
+			padding-left: 20%;
+		}
+		.team-img {
+			position: relative;
+			img {				
+				@include media-breakpoint-only(xs) { 
+					width: 250px;
+				}
+				@include media-breakpoint-only(sm){
+					width: 250px;
+				}  
+				@include media-breakpoint-only(md){
+					width: 300px;
+				}
+				@include media-breakpoint-only(lg){
+					width: 300px;
+				}
+				@include media-breakpoint-only(xl){
+					width: 350px;
+				}
+			}			
+		}
+		.team-content {
+			position: absolute; 
+			background-color: rgba(17, 24, 31, 0.8); 
+			bottom: 0px; 
+			color: #fff;
+			text-shadow: 1px 1px 5px rgba(0, 0, 0, .9);
+			
+			@include media-breakpoint-only(xs) { 
+				width: 250px;
+			}
+			@include media-breakpoint-only(sm){
+				width: 250px;
+			}  
+			@include media-breakpoint-only(md){
+				width: 300px;
+			}
+			@include media-breakpoint-only(lg){
+				width: 300px;
+			}
+			@include media-breakpoint-only(xl){
+				width: 350px;
+			}
+			padding: 30px;
+			.mb40 {
+				margin-bottom:40px;
+			}
+			.team-meta {
+				color: #9da4aa; 
+				font-weight: 400; 
+				font-size: 16px;
+			}
+		}
+	}
+}
+.modal-toggler {
+	max-width: 100vw;
+}
+.cal_box {
+	float: none;
+	min-height: 100px;
+	.date-as-calendar {
+		color: #000;
+		overflow: hidden;
+		width: 90px;
+		height: 100px;
+		// border: 1px solid #0579BE;
+		border-radius: 3px;
+		clear: none;
+		float: left;
+		background-color: #FFF;
+	}
+	.date-as-calendar .month,
+	.date-as-calendar .day,
+	.date-as-calendar .weekday {
+		text-align: center;
+		width: 100%;
+		display: block;
+		font-weight: 700;
+	}
+	.date-as-calendar .month {
+		font-size: 1rem;
+		font-family: 'Cen-Gothic';
+		background: #0579BE;
+		color: #FFF;
+		line-height: 40px;
+	}	
+	.date-as-calendar .day {
+		font-size: 1.6rem;
+	}	
+	.date-as-calendar .weekday {
+		font-size: .8em;
+	}	
+	.date-as-calendar .calendar-event-name {
+		margin-left: 100px;
+		font-weight: 700;
+	}
+}

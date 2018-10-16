@@ -1,0 +1,150 @@
+{
+  "contact_form": {
+    "title":"Contact Us",
+    "input_fields": [
+      {
+        "label": {
+          "for" : "name",
+          "title" : "Enter your name:",
+          "icon": null
+        },
+        "type":"text",
+        "input" :{
+          "model":"message.name",
+          "ngClass": "{'is-invalid':messageName.errors && messageName.touched}",
+          "class": "form-control",
+          "name": "name",
+          "clickEvent":"toggleForm($event)",
+          "modelIdentifier": "messageName",
+          "placeholder": "Please provide your name",
+          "pattern": "[A-Za-z\\s\\.\\']",
+          "pattern_validation": {
+            "required_text": "Your name is required",
+            "pattern_text": "Your name cannot contain numbers or special characters"
+          }
+        }
+      },
+      {
+        "label": {
+          "for" : "email",
+          "title" : "Email Address:",
+          "icon": "far fa-envelope"
+        },
+        "type":"email",
+        "input" :{          
+          "model":"message.email",
+          "ngClass": "{'is-invalid':messageEmail.errors && messageEmail.touched}",
+          "class": "form-control",
+          "name": "email",
+          "clickEvent":null,
+          "modelIdentifier": "messageEmail",
+          "placeholder": "Address to respond to",
+          "pattern": "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?",
+          "pattern_validation": {
+            "required_text": "Your email is required.",
+            "pattern_text": "Email entered is invalid."
+          }
+        }
+      },
+      {
+        "label": {
+          "for" : "phone",
+          "title" : "Phone Number",
+          "icon": "fas fa-mobile-alt"
+        },
+        "type":"text",
+        "input" :{
+          "model":"message.phone",
+          "ngClass": "{'is-invalid':messagePhone.errors && messagePhone.touched}",
+          "class": "form-control",
+          "name": "phone",
+          "clickEvent":null,
+          "modelIdentifier": "messagePhone",
+          "placeholder": "Your phone number",
+          "pattern": "^(\\+\\d{1,2}\\s)?\\(?\\d{3}\\)?[\\s.-]?\\d{3}[\\s.-]?\\d{4}$",
+          "pattern_validation": {
+            "required_text": null,
+            "pattern_text": "The number entered wasn't recognized. Please check the number of digits entered."
+          }
+        }
+      },
+      {
+        "label": {
+          "for" : "message",
+          "title" : "Message:",
+          "icon": "far fa-comment-alt"
+        },
+        "type":"textarea",
+        "input" :{          
+          "model":"message.message",
+          "ngClass": "{'is-invalid':messageMessage.errors && messageMessage.touched}",
+          "class": "form-control",
+          "name": "message",
+          "clickEvent":null,
+          "modelIdentifier": "messageMessage",
+          "minLength": 50,
+          "maxLength": 500,
+          "pattern": "[A-Za-z\\s\\.\\']",
+          "pattern_validation": {
+            "min_text": "Message is too short, please add more information so we can assist you better.",
+            "max_text": "Message is too long, please shorten."
+          }
+        }
+      }
+    ],
+    "button_text":"Send Message"
+  },
+  "information_links": {
+    "title": "Information",
+    "links": [
+      {
+        "title" : "About",
+        "route" : "about-hope-point"
+      },
+      {
+        "title" : "Brick Patio",
+        "route" : "brick-patio"
+      },
+      {
+        "title" : "Outreach",
+        "route" : "missions/outreach"
+      },
+      {
+        "title" : "Sermons",
+        "route" : "hope-point-sermons"
+      }
+    ]
+  },
+  "worship_links" : {
+    "title" : "Worship",
+    "links" : [
+      {
+        "title":"House of Prayer",
+        "route":"house-of-prayer"
+      }
+    ]
+  },
+  "ministry_links" : {
+    "title": "Ministries"
+  },
+  "social_links": {
+    "links": [
+      {
+        "route":"https://www.facebook.com/hpnaz/",
+        "icon":"fab fa-facebook-f fa-2x"
+      },
+      {
+        "route": "https://twitter.com/HopePointNaz",
+        "icon":"fab fa-twitter fa-2x"
+      },
+      {
+        "route": "https://www.instagram.com/hopepointnazyc/",
+        "icon": "fab fa-instagram fa-2x"
+      },
+      {
+        "route": "https://www.youtube.com/channel/UCZoJnP9s_Wxd0HPzl47evyA/",
+        "icon": "fab fa-youtube-square fa-2x"
+      }
+    ]
+  }
+}

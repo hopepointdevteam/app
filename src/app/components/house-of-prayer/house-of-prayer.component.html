@@ -1,0 +1,30 @@
+<div class="splash-image worship-image">
+  <div class="ptext">
+    <h2>
+      <span class="border">
+        House of Prayer
+      </span>
+    </h2>
+  </div>
+</div> 
+<section class="section section-light">
+    <div class="row">
+      <div class="col-12">
+        <h3 class="text-center text-dark">Our Worship Team</h3>
+      </div>
+      <div class="col-lg-6 col-sm-6 text-center mb-4 pt-5" *ngFor="let member of worshipLeaders">
+        <img class="rounded-circle img-fluid d-block mx-auto" [src]="base + member.ImgUrl" alt="{{member.name}}" >
+        
+          <h3>{{member.name}}</h3>
+          <p>{{member.title}}<br>
+            <small>
+              <a href="{{member.facebook}}" target="_blank">Facebook</a>
+            </small>
+            <br>
+            <small>
+              <a href="{{member.twitter}}" target="_blank">@{{member.name}}</a>
+            </small>
+          </p>
+      </div>
+    </div>
+  </section>

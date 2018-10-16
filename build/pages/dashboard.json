@@ -1,0 +1,74 @@
+[{
+  "title": "Hope Point Nazarene Church",
+  "sections": [ 
+   { "landing": {
+      "image" : "/assets/images/backgrounds/landing.jpg",
+      "image_alt": "Welcome Home",
+      "text_upper": "Hope Point Nazarene",
+      "text_lower": "Welcome Home",
+      "verse" : "\"They committed themselves to the teaching of the apostles, the life together, the common meal, and the prayers.\" - Acts 2:42",
+      "button_text": "About Hope Point",
+      "route": "/about-hope-point"
+    }
+  },
+  { "list_section" : {
+      "title" : "Services",
+      "list_items": [
+        "Saturday -- House of Prayer @ 6:00pm",
+        "Sunday -- Service @ 9:00am",
+        "Sunday -- Service @ 11:00am",
+        "Wednesday -- Small Groups @ 6:00pm"
+      ]
+    }
+  },  
+  { "info_section" : {
+      "image" : "/assets/images/backgrounds/TheTable_BG.jpg",
+      "image_alt": "",
+      "text_upper" : "",
+      "text_lower" : "THE TABLE",
+      "route" : "/the-table",
+      "paragraphs": [
+        "The Table is a starting point where people can explore faith and experience community. This is where the big church becomes small. Everyone has a seat at The Table. Join us Wednesday nights at 6:30 as we share a meal and build relationship with God and each other."
+      ],
+      "button_text": "More Info!"
+    }
+  },
+  {
+    "call_to_action": {
+      "image": "",
+      "text_upper": "Join us in prayer",
+      "text_lower": "Every Saturday at 6:00pm",
+      "route": "/house-of-prayer",
+      "button_text" : "House of Prayer"
+    }
+  },
+  {
+    "team": {
+      "title": "Our Pastoral Team",
+      "members": [
+        {
+          "name": "Doug Smith",
+          "image": "/assets/images/staff/DougSmith.jpg",
+          "title": "Lead Pastor"
+        },
+        {
+          "name": "Dan Hasting",
+          "image": "/assets/images/staff/DanHastings.jpg",
+          "title": "Associate Pastor"
+        },
+        {
+          "name": "Hannah Maddalena",
+          "image": "/assets/images/staff/HannahMaddalena.jpg",
+          "title": "Junior High/High School Youth Pastor"
+        },
+        {
+          "name": "KathleenTrimble",
+          "image": "/assets/images/staff/KathleenTrimble.jpg",
+          "title": "Children's Director"
+        }
+      ]
+    }
+  }
+  ]  
+
+}]

@@ -1,0 +1,13 @@
+{
+
+    "autoload": {
+        "psr-4": {
+             "Core\\": "Core/",
+             "App\\": "App/"
+        }
+    },
+    "require": {
+        "phpmailer/phpmailer": "^6.0",
+        "google/recaptcha": "^1.2"
+    }
+}

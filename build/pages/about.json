@@ -1,0 +1,48 @@
+[{
+  "sections": [
+    {
+      "about_landing" : {
+        "image": "/assets/images/backgrounds/Believe_BG.jpg",
+        "image_alt": "Hope Point Beliefs",
+        "text_upper" : "About Hope Point",
+        "text_lower" : "Statement of Belief",
+        "statements": [
+          "<strong>We believe</strong> in one God—the Father, Son, and Holy Spirit.",
+          "<strong>We believe</strong> that the Old and New Testament Scriptures, given by plenary inspiration, contain all truth necessary to faith and Christian living.",
+          "<strong>We believe</strong> that man is born with a fallen nature, and is, therefore, inclined to evil, and that continually.",
+          "<strong>We believe</strong> that the finally impenitent are hopelessly and eternally lost.",
+          "<strong>We believe</strong> that the atonement through Jesus Christ is for the whole human race; and that whosoever repents and believes on the Lord Jesus Christ is justified and regenerated and saved from the dominion of sin.",
+          "<strong>We believe</strong> that believers are to be sanctified wholly, subsequent to regeneration, through faith in the Lord Jesus Christ.",
+          "<strong>We believe</strong> that the Holy Spirit bears witness to the new birth, and also to the entire sanctification of believers.",
+          "<strong>We believe</strong> that our Lord will return, the dead will be raised, and the final judgment will take place."
+        ]
+      }
+    },
+    {
+      "description_list_section": {
+        "image" : "/assets/images/backgrounds/Vision_BG.jpg",
+        "image_alt": "Hope Point Vision",
+        "text_upper": "Our Mission",
+        "text_lower": "Live out the 3 dimensions of Jesus&rsquo;",
+        "list": [
+          {
+            "item" : "UP:",
+            "statement" : "As a church, we are committed to become a spiritual family that worships the Father -- our foundation."
+          },
+          {
+            "item" : "IN:",
+            "statement" : "We develop meaningful relationships by doing life together dedicating ourselves to our church and church family."
+          },
+          {
+            "item" : "OUT",
+            "statement" : "We serve our community by fully engaging a broken world with the love of Jesus. We show love by kneeling down to those in need."
+          }
+        ]
+      }
+  },
+  {
+      "location_section" : {
+        "title" : "Visit Our Campus"
+      }
+  }]
+}]

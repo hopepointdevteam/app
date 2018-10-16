@@ -1,0 +1,65 @@
+<section class="page-section pt-2 clearfix">
+    <div class="container">
+      <div class="intro">
+        <img class="intro-img-left img-fluid mb-3 mb-lg-0 rounded" [src]="base + '/assets/images/backgrounds/Senior_BG.jpg'" alt="Life After Fifty Five Ministry">
+        <div class="intro-text-right left-0 text-center bg-faded p-5 rounded">
+          <h2 class="section-heading mb-4">
+            <span class="section-heading-upper">Hope Point Nazarene</span>
+            <span class="section-heading-lower">Adult 55+ Ministry</span>
+          </h2>
+          <p class="mb-3">
+              &#8220;Rise in the presence of the aged and honor the elderly face-to-face. Fear your God. I am the LORD.&#8221; - Leviticus 19:32
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="page-section cta">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-9 mx-auto">
+            <div class="cta-inner rounded">
+                <div class="col-xs-12 w-75 mx-auto">
+                  Hope Point Ministries for adults age 55 is as diverse as the Builders and Boomers that make up our age group.  Born in the early 1900s to 1960s, we bond together in blessings and challenges unique to Life After Fifty-Five (L.A.F.F.).  Please check the calendar for weekly, monthly, and periodic events that include the PT Cruisers Potluck Fellowship with guest speaker (3rd Sunday each month), Sunday school, prayer walks and a variety of activities including bicycling, campouts, and outings.
+                </div>
+                <div class="col-xs-12 pt-5 text-center">
+                  <h3>View Our Life After Fifty-Five Ministry Calendar Below</h3>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  <section class="page-section">
+    <div class="container">
+        <div class="card-columns">
+            <div class="card" *ngFor="let e of events; let i = index">
+              <div class="card-header p-0">
+                <div class="cal_box">
+                  <div class="date-as-calendar">
+                    <span class="month">{{ e.date | date:"MMM" }}</span>
+                    <span class="day"> {{e.date | date:"dd"}}</span>
+                    <span class="weekday">{{e.date | date:"EEEE"}}</span>
+                  </div>
+                  <span class="calendar-event-name">{{e.event_name}}</span>
+                </div>
+                
+              </div>
+              <div class="card-body">
+                
+                <div class="col-xs-12 text-left" [innerHTML]="sanatizeHtml(e.event_description)" ></div>
+                <div class="col-xs-12"><strong>When: </strong>{{ e.date + 'T' + e.start_time | date:"shortTime" }}</div>
+                <div class="col-xs-12" [innerHTML]="returnLocation(e.location)"></div>
+                <div class="col-xs-12"><strong>Contact: </strong><span (click)="expanded[i] = !expanded[i]">Show More <i class="fas fa-angle-down"></i></span>
+                  <div class="col-xs-12 pt-2" [hidden]="!expanded[i]">
+                      <p><strong>{{e.leader_name}}</strong></p>
+                      <p [innerHtml]="returnContact(e.leader_phone)"></p>
+                      <p [innerHTML]="returnEmail(e.leader_email, e.event_name)"></p>
+                  </div>
+                </div>
+          
+              </div>
+            </div>
+          </div>
+    </div>
+  </section>

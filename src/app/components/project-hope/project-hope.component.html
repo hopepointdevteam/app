@@ -1,0 +1,69 @@
+<section class="page-section">
+    <div class="container about-heading">
+      <img class="img-fluid rounded about-heading-img my-3" [src]="base + '/assets/images/extra_content/project_hope.jpg'" alt="Hope Point Project Hope">
+      <div class="about-heading-content mx-auto">
+        <div class="row">
+          <div class="col-xl-9 col-lg-10 mx-auto">
+            <div class="bg-faded rounded p-5">
+              <h2 class="section-heading mb-4">
+                <span class="section-heading-upper">Hope Point Community Outreach</span>
+                <span class="section-heading-lower">Project Hope</span>
+              </h2>
+              <p class="text-left p-5 shadow-lg rounded">
+                At 10am every 3rd Thursday of the month we take coffee and breakfast to our friends at the Riverbottoms. We spend time talking about life and the love of Jesus.
+              </p>
+              <p class="text-left p-5 shadow-lg rounded">
+                The bike kitchen was started to help our homeless community. Every 3rd Thursday a group of volunteers takes bike locks, parts and tools to the riverbottoms to set up our own bike repair shop. It’s a way to not only help our homeless community but build relationships with some amazing people.
+              </p>
+              <p class="text-left p-5 shadow-lg rounded">
+                Our <strong>Project Hope</strong> calendar is listed below
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<section class="page-section">
+  <div class="container">
+      <div class="card-deck">
+          <div class="col-xs-12 col-sm-12 col-lg-6 card border-0" *ngFor="let e of events; let i = index">
+            <div class="card-body">
+              <div class="d-flex">
+                <div class="col-xs-5 col-lg-4 cal_box">
+                    <div class="date-as-calendar">
+                        <span class="month">{{ e.date | date:"MMM" }}</span>
+                        <span class="day"> {{e.date | date:"dd"}}</span>
+                        <span class="weekday">{{e.date | date:"EEEE"}}</span>
+                      </div>
+                </div>
+                <div class="col-xs-7 col-lg-8">
+                  <span class="calendar-event-name">{{e.event_name}}</span>
+                </div>
+              </div>
+              <div class="col-xs-12" [innerHTML]="sanatizeHtml(e.event_description)" ></div>
+              <div class="col-xs-12"><strong>When: </strong>{{ e.date + 'T' + e.start_time | date:"shortTime" }}</div>
+              <div class="col-xs-12"><strong>Contact: </strong><span (click)="expanded[i] = !expanded[i]">Show More <i class="fas fa-angle-down"></i></span>
+                <div class="col-xs-12 pt-2" [hidden]="!expanded[i]">
+                    <p><strong>{{e.leader_name}}</strong></p>
+                    <p><a href="tel:{{e.leader_phone}}">Call:&nbsp;<i class="fas fa-mobile-alt"></i></a> {{e.leader_phone}}</p>
+                    <p><a href="mailto:{{e.leader_email}}?Subject=Information%20About%20{{e.event_name}}" target="_top">Email:&nbsp;<i class="fas fa-envelope"></i></a> {{e.leader_email}}</p>
+                    
+                      <!-- <div class="fb-share-button" 
+                      data-href="https://www.your-domain.com/your-page.html" 
+                      data-layout="button_count">
+                      </div>
+                      <div class="fb-like" 
+                        data-href="https://www.your-domain.com/your-page.html" 
+                        data-layout="standard" 
+                        data-action="like" 
+                        data-show-faces="true">
+                      </div> -->
+                </div>
+              </div>
+        
+            </div>
+          </div>
+        </div>
+  </div>
+</section>

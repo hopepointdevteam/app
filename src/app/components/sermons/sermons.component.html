@@ -1,0 +1,58 @@
+<section class="page-section pt-2 clearfix">
+    <div class="container">
+      <div class="intro">
+        <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" [src]="base + '/assets/images/backgrounds/Sermons_BG.jpg'" alt="Hope Point Sermons">
+        <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+          <h2 class="section-heading mb-4">
+            <span class="section-heading-upper">Hope Point Nazarene</span>
+            <span class="section-heading-lower">Sermons</span>
+          </h2>
+          <p class="mb-3"> 
+              We have made it easier to view our sermons on demand.
+          </p>
+          <div class="intro-button mx-auto">
+            <a class="btn btn-dark btn-xl" routerLink="/about-hope-point">Learn More Today!</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="page-section">
+    <div class="container">
+        <div class="carousel slide" data-interval="false" id="hopePointVideos">
+          <div class="carousel-inner">
+            <div class="carousel-item p-0 p-md-3 mx-auto w-75 h-100" *ngFor="let s of sermons?.items; index as i" [ngClass]="i == 0 ? 'active' : ''">
+                <div class="embed-responsive embed-responsive-21by9">
+                  <iframe 
+                    class="embed-responsive-item" 
+                    [src]="sanatizeUrl(s.id.videoId)" 
+                    frameborder="0" 
+                    allow="encrypted-media" 
+                    allowfullscreen
+                    >
+                  </iframe>
+                </div>
+                <div class="row bg-light">
+                  <div class="col-xs-12 d-none">
+                    <h3 class="text-center">{{s.snippet.title}}</h3>
+                  </div>
+                  <div class="col-xs-12 d-none">
+                    <p class="text-left">{{s.snippet.channelTitle}}</p>
+                    <p class="text-left">{{s.snippet.description}}</p>
+                  </div>
+                </div>
+            </div>
+          </div>
+            <a class="carousel-control-prev" href="#hopePointVideos" data-slide="prev">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+            <a class="carousel-control-next" href="#hopePointVideos" data-slide="next">
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+        <div class="col-xs-9 col-sm-9 mx-auto bg-light mt-5 p-5">
+            <h4 class="text-center">For more sermons please visit our Youtube channel</h4>
+            <p class="text-center"><a href="https://www.youtube.com/channel/UCZoJnP9s_Wxd0HPzl47evyA/" target="_blank"><i class="fab fa-youtube-square fa-2x"></i></a></p>
+        </div>
+    </div>
+  </section>

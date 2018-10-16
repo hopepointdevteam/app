@@ -1,0 +1,68 @@
+<section class="page-section pt-2 clearfix">
+    <div class="container">
+      <div class="intro">
+        <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" [src]="base + '/assets/images/backgrounds/BrickPatio_BG.jpg'" alt="Welcome Center">
+        <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+          <h2 class="section-heading mb-4">
+            <span class="section-heading-upper">Hope Point Nazarene</span>
+            <span class="section-heading-lower">Welcome Home</span>
+          </h2>
+          <p class="mb-3">
+              The Brick Patio is the welcoming platform at Hope Point. It is located to the right of the main entrance.
+              Anyone is welcomed to visit and learn <a href="about-hope-point"><strong>more about</strong></a> Hope Point, who we are, what our mission is,
+              and how we can get you connected with your fellow church members. Please swing by before or after either service on Sunday mornings. We look forward to talking to you!
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="page-section about-heading">
+      <div class="container">
+        <img class="img-fluid rounded about-heading-img my-3" [src]="base + '/assets/images/extra_content/you_are_worthy.jpg'" alt="Hope Point Connections">
+        <div class="about-heading-content mx-auto">
+          <div class="row">
+            <div class="col-xl-9 col-lg-10 mx-auto">
+              <div class="bg-faded rounded p-5">
+                <h2 class="section-heading mb-4">
+                  <span class="section-heading-lower">Let's get you connected</span>
+                </h2>
+                <div class="row connection-container no-gutters">
+                    <div class="col-xs-12 col-sm-12 col-md-12 card border-0" *ngFor="let c of connections; let i = index" >
+                      <img [src]="base + c.ImgUrl" alt="{{c.name}}" class="card-img-top" (click)="hidden[i] = !hidden[i]"/> 
+                      <div class="card-body">
+                        <h6 class="text-center" (click)="hidden[i] = !hidden[i]">{{c.name}}</h6>
+                          <div class="col-xs-12 p-2 shadow-md" [hidden]="!hidden[i]">
+                              <div class="col-xs-12 col-sm-12" [innerHTML]="sanatizeHtml(c.description)"></div>
+                              <div *ngIf="c.name =='I am Hope Point'">
+                                  <div class="col-xs-12 col-sm-12 pt-3" *ngFor="let Iam of IAmEvents">
+                                    <div class="cal_box">
+                                      <div class="date-as-calendar">
+                                        <span class="month">{{ Iam.date | date:"MMMM" }}</span>
+                                        <span class="day"> {{Iam.date | date:"dd"}}</span>
+                                        <span class="weekday">{{Iam.date | date:"EEEE"}}</span>
+                                      </div>
+                                      <span class="calendar-event-name">&nbsp;&nbsp;{{Iam.event_name}}</span>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 p-0" [innerHTML]="sanatizeHtml(Iam.event_description)"></div>
+                                    <div class="col-xs-12 col-sm-12 p-0"><strong>When: </strong>{{ Iam.date + 'T' + Iam.start_time | date:"shortTime" }}</div>
+                                    <div class="col-xs-12 col-sm-12 p-0"><strong>Where: </strong>{{Iam.location}}</div>
+                                    <div class="col-xs-12 col-sm-12 p-0"><strong>Contact: </strong> <span (click)="expanded[i] = !expanded[i]">Show More <i class="fas fa-angle-down"></i></span>
+                                      <div [hidden]="!expanded[i]">
+                                        <p><strong>{{Iam.leader_name}}</strong></p>
+                                        <p [innerHtml]="returnContact(Iam.leader_phone)"></p>
+                                        <p [innerHTML]="returnEmail(Iam.leader_email, Iam.event_name)"></p>
+                                      </div>
+                                    </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+

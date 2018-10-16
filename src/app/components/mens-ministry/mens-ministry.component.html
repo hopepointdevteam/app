@@ -1,0 +1,77 @@
+<section class="page-section pt-2 clearfix">
+    <div class="container">
+      <div class="intro">
+        <img class="intro-img-left img-fluid mb-3 mb-lg-0 rounded" [src]="base + '/assets/images/backgrounds/Mens_BG.jpg'" alt="Men's Ministry">
+        <div class="intro-text-right left-0 text-center bg-faded p-5 rounded">
+          <h2 class="section-heading mb-4">
+            <span class="section-heading-upper">Hope Point Nazarene</span>
+            <span class="section-heading-lower">Men's Ministry</span>
+          </h2>
+          <p class="mb-3">
+              "Be on your guard; stand firm in the faith; be courageous; be strong." - 1 Corinthians 16:13
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="page-section">
+      <div class="container cta">
+        <div class="row">
+          <div class="col-xl-9 mx-auto">
+            <div class="cta-inner rounded">
+                <div class="col-xs-12 w-75 mx-auto">
+                    At <strong>Hope Point Nazarene</strong>, we welcome all men without judgement. Our aim is to connect you to God and others, with a result of life on mission towards God’s purposes. Through various seasonal events, Bible studies, and opportunities to serve, the Men’s Ministry ignites passion for the Great Commandment and Great Commission in the heart of every man.
+                  </div>
+                  <div class="col-xs-12 pt-3 w-75 mx-auto">
+                    <h5>DIVE INTO THE WORD</h5>
+                    <p>
+                    “No man is an island” . . . that’s not just pretty prose. It’s hard-core reality. Isolation, especially for men, is dangerous. Throughout the week we have bible studies, small groups and a weekly Friday morning breakfast to get plugged into Hope Point Men’s ministry. Real men come out of their caves and find community with each other. Click below to get more information today.
+                    </p>
+                  </div>
+                  <div class="col-xs-12 pt-3 w-75 mx-auto">
+                    <h5>RETREATS</h5>
+                    <p>
+                      Sometimes you just need to get away and get with God. That’s why our Men’s Fall retreat is the ideal place to unplug from life and connect with others.
+                    </p>
+                  </div>
+                  <div class="col-xs-12 pt-5 text-center">
+                    <h3>View Our Men's Ministry Calendar Below</h3>
+                  </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  <section class="page-section">
+    <div class="container">
+        <div class="card-columns">
+            <div class="card" *ngFor="let e of events; let i = index">
+              <div class="card-header p-0">
+                <div class="cal_box">
+                  <div class="date-as-calendar">
+                    <span class="month">{{ e.date | date:"MMM" }}</span>
+                    <span class="day"> {{e.date | date:"dd"}}</span>
+                    <span class="weekday">{{e.date | date:"EEEE"}}</span>
+                  </div>
+                  <span class="calendar-event-name">{{e.event_name}}</span>
+                </div>
+                
+              </div>
+              <div class="card-body">
+                
+                <div class="col-xs-12 text-left" [innerHTML]="sanatizeHtml(e.event_description)" ></div>
+                <div class="col-xs-12"><strong>When: </strong>{{ e.date + 'T' + e.start_time | date:"shortTime" }}</div>
+                <div class="col-xs-12"><strong>Where: </strong>{{e.location}}</div>
+                <div class="col-xs-12"><strong>Contact: </strong><span (click)="expanded[i] = !expanded[i]">Show More <i class="fas fa-angle-down"></i></span>
+                  <div class="col-xs-12 pt-2" [hidden]="!expanded[i]">
+                      <p><strong>{{e.leader_name}}</strong></p>
+                      <p [innerHtml]="returnContact(e.leader_phone)"></p>
+                      <p [innerHTML]="returnEmail(e.leader_email, e.event_name)"></p>
+                  </div>
+                </div>
+          
+              </div>
+            </div>
+          </div>
+    </div>
+  </section>

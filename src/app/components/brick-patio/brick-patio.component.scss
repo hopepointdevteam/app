@@ -1,0 +1,43 @@
+.about-heading-content {
+	.section-heading {
+		.section-heading-lower {
+			color: #fff;
+		}
+	}
+}
+a {
+	color: #000;
+	text-decoration: none;
+	text-shadow: 1px 0px 1px #000;
+}
+
+a:focus, a:hover {
+	font-weight: 600;
+	text-decoration: none;
+}
+
+
+
+.cal_box {
+	.calendar-event-name {
+		font-size: 1.5em;
+	}
+	.date-as-calendar {
+		background-color: #FFF;
+	}
+}
+
+.connection-container {
+	background-color: rgba(166, 166, 166, .9);
+	border-radius: 15px;
+	.card {
+		background-color: rgba(0, 0, 0, 0);
+		.card-body {
+			h6 {
+				color: #FFF;
+				font-weight: 500;
+				text-shadow: 1px 2px 5px #000;
+			}
+		}		
+	}
+}

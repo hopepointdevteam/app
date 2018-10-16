@@ -1,0 +1,19 @@
+.carousel {
+  background-color: rgba(166,166,166,.8);
+  border-radius: 5px;
+}
+.carousel-control-next, .carousel-control-prev {
+  width: 20px;
+  background-color: rgba(0,0,0,.25)
+}
+
+.fa-arrow-right,.fa-arrow-left {
+  color: #000000;
+  text-shadow: 1px 1px 4px #000;
+  z-index: 1;
+}
+
+
+.fa-youtube-square {
+	color: red;
+}

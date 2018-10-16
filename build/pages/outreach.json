@@ -1,0 +1,33 @@
+[{
+  "sections": [
+    {
+      "about_landing" : {
+        "image": "/assets/images/backgrounds/Believe_BG.jpg",
+        "image_alt": "Hope Point Beliefs",
+        "text_upper" : "About Hope Point",
+        "text_lower" : "Mission Field",
+        "paragraphs": [
+          "Hope Point has partnered with Victory Chapel in Nassaw, Bahamas with a continuous mission presence in the church.",
+          "Our local community is important to our Hope Point Family and serve to local missions; Project Hope and the Bike Kitchen.",
+          "Learn more about our missions below."
+        ]
+      }
+    },
+    {
+      "card_column_full_background" : {
+        "cards": [
+          {
+            "name" : "Bahamas Mission",
+            "image": "/assets/images/backgrounds/Bahamas_BG.jpg",
+            "route": "/missions/bahamas-partnership"              
+          },
+          {
+            "name" : "Project Hope",
+            "image" : "/assets/images/backgrounds/Community_BG.jpg",
+            "route": "/missions/project-hope"
+          }
+        ]
+      }
+    }
+  ]
+}]
