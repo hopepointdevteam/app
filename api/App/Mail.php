@@ -25,7 +25,7 @@ class Mail extends \Core\Model
 
 		    //Recipients
 		    $mail->setFrom($email, $from);
-		    $mail->addAddress('capps.scott@gmail.com');     // Add a recipient
+		    $mail->addAddress(Config::RECIPIENT_EMAIL);     // Add a recipient
 		    //$mail->addAddress('ellen@example.com');               // Name is optional
 		    $mail->addReplyTo('admin@admin.com', 'Information');
 		    //$mail->addCC('cc@example.com');
