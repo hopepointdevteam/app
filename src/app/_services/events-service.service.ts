@@ -1,3 +1,4 @@
+import { WINDOW } from '@ng-toolkit/universal';
 import { Injectable} from '@angular/core'; 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -9,10 +10,10 @@ import { Event } from '../../../build/models/event';
 export class EventsService {
   event: Event[];
   base: any;
-  constructor(private http: HttpClient) { }
+  constructor(@Inject(WINDOW) private window: Window, private http: HttpClient) { }
 
   getEvents(): Observable<any> {
-    this.base = window.location.href 
+    this.base = this.window.location.href 
     this.base = /(http\:\/\/[a-z\.\:0-9]+)\/([a-z]+)*\/*/g.exec(this.base);
     if(this.base[2] != 'preview' || !this.base[2]){
       this.base = this.base[1] + '/'

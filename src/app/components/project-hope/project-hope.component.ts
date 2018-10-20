@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { WINDOW } from '@ng-toolkit/universal';
+import { Component, OnInit , Inject} from '@angular/core';
 import { EventsService } from '../../_services';
 import { DomSanitizer, SafeResourceUrl, SafeUrl, Meta, Title } from '@angular/platform-browser';
 
@@ -11,13 +12,13 @@ export class ProjectHopeComponent implements OnInit {
   events: Event[];
   expanded = [];
   base: any;
-  constructor(
+  constructor(@Inject(WINDOW) private window: Window, 
     private _eventService: EventsService, 
     private sanitizer: DomSanitizer
   ) { } 
 
   ngOnInit() {
-    this.base = window.location.href 
+    this.base = this.window.location.href 
     this.base = /(http\:\/\/[a-z\.\:0-9]+)\/([a-z]+)*\/*/g.exec(this.base);
     if(this.base[2] != 'preview' || !this.base[2]){
       this.base = this.base[1] + '/'

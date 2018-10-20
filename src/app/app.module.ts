@@ -1,3 +1,5 @@
+import { NgtUniversalModule } from '@ng-toolkit/universal';
+import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule} from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -57,8 +59,9 @@ import { JrhighMinistryComponent } from './components/jrhigh-ministry/jrhigh-min
     Club45MinistryComponent,
     JrhighMinistryComponent  
   ],
-  imports: [
-    BrowserModule,
+  imports:[
+    CommonModule,
+    NgtUniversalModule,    
     AppRoutingModule,
     DeviceDetectorModule.forRoot(),
     FormsModule,
@@ -73,8 +76,5 @@ import { JrhighMinistryComponent } from './components/jrhigh-ministry/jrhigh-min
     SendMessageService,
     PageLayoutService
   ],
-  bootstrap: [
-    AppComponent
-  ]
 })
 export class AppModule { }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { WINDOW } from '@ng-toolkit/universal';
+import { Component, OnInit , Inject} from '@angular/core';
 import { SermonsService } from '../../_services';
 import { DomSanitizer} from '@angular/platform-browser';
 
@@ -12,11 +13,11 @@ export class SermonsComponent implements OnInit {
   sermons: any;
   clips = [];
   base: any;
-  constructor(private _sermonService: SermonsService, private sanitizer: DomSanitizer){
+  constructor(@Inject(WINDOW) private window: Window, private _sermonService: SermonsService, private sanitizer: DomSanitizer){
   }
   
   ngOnInit(){
-    this.base = window.location.href 
+    this.base = this.window.location.href 
     this.base = /(http\:\/\/[a-z\.\:0-9]+)\/([a-z]+)*\/*/g.exec(this.base);
     if(this.base[2] != 'preview' || !this.base[2]){
       this.base = this.base[1] + '/'

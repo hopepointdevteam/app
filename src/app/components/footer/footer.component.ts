@@ -2,7 +2,6 @@ import { Component, OnInit, HostListener, ViewChild } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl, SafeUrl, Meta, Title } from '@angular/platform-browser';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { DeviceDetectorService } from 'ngx-device-detector';
-import { Message } from '../../../../build/models';
 import { HPConnections, AllMinistries } from '../../../../build/constants';
 import { EventsService, SendMessageService, PageLayoutService } from '../../_services';
 import { FlashMessagesService } from 'angular2-flash-messages'; 
@@ -49,20 +48,22 @@ export class FooterComponent implements OnInit {
     }
     this.getCurrentBuild()
     this.contactMessage = this.formBuilder.group({
-      name: ['', [Validators.required, Validators.minLength(2)]],
-      email: ['', [ Validators.required, Validators.pattern(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/) ] ],
-      phone: ['', [ Validators.required, Validators.pattern(/^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/) ] ],
+      name: ['', Validators.required],
+      email: ['', [ Validators.required, Validators.email ] ],
+      phone: ['', [ Validators.required, Validators.pattern("[(0-9)]*[\\s][\\d]{1,5}-?[\\d]{1,5}" ) ] ],
       message: ['', [ Validators.required, Validators.minLength(50), Validators.maxLength(500) ]  ],
       website: ['', Validators.maxLength(0)]
     })
   }
+
+ 
 
   get name() { return this.contactMessage.get('name') }
   get email() { return this.contactMessage.get('email') }
   get phone() { return this.contactMessage.get('phone') }
   get message() { return this.contactMessage.get('message') }
   get website() { return this.contactMessage.get('website') }
-  get f() { return this.contactMessage.controls }
+  get f() { return this.contactMessage.controls; }
 
   onSubmit() {
     if( this.contactMessage.invalid ) {

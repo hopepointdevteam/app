@@ -1,4 +1,5 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { WINDOW } from '@ng-toolkit/universal';
+import { Component, OnInit, HostListener , Inject} from '@angular/core';
 import { PageLayoutService } from '../../_services';
 
 @Component({
@@ -11,7 +12,7 @@ export class NavbarComponent implements OnInit {
   TogglerClass = ''; 
   base: any;
   layout: any;
-  constructor( 
+  constructor(@Inject(WINDOW) private window: Window,  
     private _pageService: PageLayoutService
   ) { 
     
@@ -19,7 +20,7 @@ export class NavbarComponent implements OnInit {
  
 
   ngOnInit() {
-    this.base = window.location.href 
+    this.base = this.window.location.href 
     this.base = /(http\:\/\/[a-z\.\:0-9]+)\/([a-z]+)*\/*/g.exec(this.base);
     if(this.base[2] != 'preview' || !this.base[2]){
       this.base = this.base[1] + '/'
@@ -35,7 +36,7 @@ export class NavbarComponent implements OnInit {
    @HostListener("window:scroll", [])
    onWindowScroll() {
  
-     const number = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+     const number = this.window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
      if(number < 10) {
       this.NavClass = 'navbar navbar-expand-md navbar-dark fixed-top';
      } else {

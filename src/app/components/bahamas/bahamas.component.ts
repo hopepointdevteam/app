@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { WINDOW } from '@ng-toolkit/universal';
+import { Component, OnInit , Inject} from '@angular/core';
 
 @Component({
   selector: 'app-bahamas',
@@ -7,10 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BahamasComponent implements OnInit {
   base: any;
-  constructor() { }
+  constructor(@Inject(WINDOW) private window: Window, ) { }
 
   ngOnInit() {
-    this.base = window.location.href 
+    this.base = this.window.location.href 
     this.base = /(http\:\/\/[a-z\.\:0-9]+)\/([a-z]+)*\/*/g.exec(this.base);
     if(this.base[2] != 'preview' || !this.base[2]){
       this.base = this.base[1] + '/'
