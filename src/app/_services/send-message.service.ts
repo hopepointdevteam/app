@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Message } from '../../../build/models/message'; 
-import { Token } from '../../../build/models/token';
+import { Message } from '../../../build/models/message';
 
 declare interface Captcha {
   token: string

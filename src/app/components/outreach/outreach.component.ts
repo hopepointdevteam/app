@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PageLayoutService } from '../../services/page-layout.service';
+import { PageLayoutService } from '../../_services';
 
 @Component({
   selector: 'app-outreach',

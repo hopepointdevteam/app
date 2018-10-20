@@ -1,4 +1,4 @@
-import { Ministry } from '/models/ministries';
+import { Ministry } from '../models/ministries';
 
 export const FamilyMinistries: Ministry[] = [
   {id: 0, name: "Kids", href: "kids", ImgUrl: "/assets/images/backgrounds/HPKids_BG.jpg", logoUrl: "/assets/images/Kids_Logo_350x350.png", MinistryGroup: 'Family'},

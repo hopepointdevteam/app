@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SermonsService } from '../../services/sermons-service.service';
+import { SermonsService } from '../../_services';
 import { DomSanitizer} from '@angular/platform-browser';
 
 @Component({

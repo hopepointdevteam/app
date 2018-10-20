@@ -1,15 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule} from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'; 
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 // Services
-import { SermonsService } from './services/sermons-service.service';
-import { EventsService } from './services/events-service.service';
-import { SendMessageService } from './services/send-message.service';
-import { PageLayoutService } from './services/page-layout.service';
+import { SermonsService, EventsService, SendMessageService, PageLayoutService } from './_services';
 
 //Components
 import { AppComponent } from './app.component';
@@ -67,7 +64,8 @@ import { JrhighMinistryComponent } from './components/jrhigh-ministry/jrhigh-min
     FormsModule,
     HttpClientModule,
     FontAwesomeModule,
-    FlashMessagesModule.forRoot()
+    FlashMessagesModule.forRoot(),
+    ReactiveFormsModule
   ],
   providers: [
     SermonsService,

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PageLayoutService } from '../../services/page-layout.service'; 
+import { PageLayoutService } from '../../_services'; 
 import { DomSanitizer, Meta, Title } from '@angular/platform-browser';
 
 @Component({

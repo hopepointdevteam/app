@@ -51,97 +51,47 @@
             </div>            
             <hr>
             <flash-messages></flash-messages> 
-            <form #infoMessage="ngForm" (ngSubmit)="sendMessage(infoMessage)">
+            <form [formGroup]="contactMessage" (ngSubmit)="onSubmit()">
               <div class="form-group">
                 <label for="name" >Enter your Name:</label>
-                <input 
-                  type="text"
-                  [(ngModel)]="message.name"
-                  [ngClass]="{'is-invalid':messageName.errors && messageName.touched}" 
-                  class="form-control" 
-                  name="name" 
-                  (click)="toggleForm($event)" 
-                  #messageName="ngModel"
-                  required
-                >
-                <div [hidden]="!messageName.errors?.required" class="invalid-feedback">
-                  Your name is required
-                </div>
-                <div [hidden]="!messageName.errors?.pattern" class="invalid-feedback">
-                  Must be at least 2 characters
-                </div>
+                <input type="text" formControlName="name" id="name" class="form-control" 
+                  [ngClass]="{ 'is-invalid' : submitted && name.invalid && (name.dirty || name.touched) }" (click)="toggleForm($event)" required >
+                  <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                    <div *ngIf="f.name.errors.required">Your name is required</div>
+                  </div>
               </div>
               <div [hidden]="hidden">
-                  <div class="form-group">
+                  <div class="form-group"> 
                     <label for="email" ><i class="far fa-envelope"></i>&nbsp;&nbsp;Email Address:</label>
-                    <input 
-                      type="email"
-                      [(ngModel)]="message.email"
-                      [ngClass]="{'is-invalid':messageEmail.errors && messageEmail.touched}"
-                      class="form-control" 
-                      name="email" 
-                      #messageEmail="ngModel"
-                      placeholder="Address to respond to"
-                      required
-                      pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"
-                      >
-                      <div [hidden]="!messageEmail.errors?.required" class="invalid-feedback">
-                        Your email is required.
-                      </div>
-                      <div [hidden]="!messageEmail.errors?.pattern" class="invalid-feedback">
-                        Email entered is invalid.
+                    <input type="email" formControlName="email" id="email" class="form-control"
+                      [ngClass]="{ 'is-invalid' : submitted && f.email.errors }" required >
+                      <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                        <div *ngIf="f.email.errors.required">Your email is required.</div>
+                        <div *ngIf="f.email.errors.pattern">Email entered is invalid.</div>
                       </div>
                   </div>
                   <div class="form-group">
                     <label for="phone" ><i class="fas fa-mobile-alt"></i>&nbsp;&nbsp;Phone Number</label>
-                    <input
-                      type="text"
-                      [(ngModel)]="message.phone"
-                      [ngClass]="{'is-invalid':messagePhone.errors && messagePhone.touched}"
-                      class="form-control"
-                      name="phone"
-                      #messagePhone="ngModel"
-                      placeholder="Your phone number"
-                      pattern="^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$"
-                    >
-                    <div [hidden]="!messagePhone.errors?.pattern" class="invalid-feedback">
-                      The number entered wasn't recognized. Please check the number of digits entered.
-                    </div>
+                    <input type="text" formControlName="phone" id="phone" class="form-control"
+                      [ngClass]="{ 'is-invalid' : submitted && f.phone.errors }" required >
+                      <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+                        <div *ngIf="f.phone.errors.required">Your phone number is required.</div>
+                        <div *ngIf="f.phone.errors.pattern">The number entered wasn't recognized. Please check the number of digits entered.</div>
+                      </div>
                   </div>
                   <div class="form-group">
                     <label for="message" ><i class="far fa-comment-alt"></i>&nbsp;&nbsp;Message:</label>
-                    <textarea 
-                      class="form-control"
-                      name="message"
-                      [(ngModel)]="message.message"
-                      [ngClass]="{'is-invalid':messageMessage.errors && messageMessage.touched}"
-                      #messageMessage="ngModel"
-                      required
-                      minlength="50"
-                      maxlength="500"
+                    <textarea formControlName="message" id="message" class="form-control"
+                      [ngClass]="{ 'is-invalid' : submitted && f.message.errors }"
                     >
                     </textarea>
-                    <div [hidden]="!messageMessage.errors?.minlength" class="invalid-feedback">
-                      Message is too short, please add more information so we can assist you better.
-                    </div>
-                    <div [hidden]="!messageMessage.errors?.maxlength" class="invalid-feedback">
-                      Message is too long, please shorten.
+                    <div *ngIf="submitted && f.message.errors" class="invalid-feedback">
+                      <div *ngIf="f.message.errors.minlength">Message is too short, please add more information so we can assist you better.</div>
+                      <div *ngIf="f.message.errors.maxlength">Message is too long, please shorten.</div>
                     </div>
                   </div>
-                  <input 
-                    type="hidden"
-                    [(ngModel)]="message.website"
-                    [ngClass]="{'is-invalid': messageWebsite.touched}" 
-                    name="website"
-                    value="" 
-                    #messageWebsite="ngModel"
-                  >
-                  <button 
-                    class="btn btn-primary form-control"  
-                    [disabled]="!infoMessage.form.valid"
-                  >
-                    Send Message
-                  </button>        
+                  <input type="hidden" formControlName="website" id="website" >
+                  <button class="btn btn-primary form-control" >Send Message</button>        
               </div>
             </form>
           </div>

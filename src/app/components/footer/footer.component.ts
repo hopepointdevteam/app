@@ -1,14 +1,12 @@
 import { Component, OnInit, HostListener, ViewChild } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl, SafeUrl, Meta, Title } from '@angular/platform-browser';
-import { FormsModule }   from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { DeviceDetectorService } from 'ngx-device-detector';
-import { Message } from '../../../../build/models/message';
-import { HPConnections } from '../../../../build/constants/connection-constants';
-import { AllMinistries } from '../../../../build/constants/all-ministries';
-import { EventsService } from '../../services/events-service.service';
-import { SendMessageService } from '../../services/send-message.service';
-import { FlashMessagesService } from 'angular2-flash-messages';
-import { PageLayoutService } from '../../services/page-layout.service'; 
+import { Message } from '../../../../build/models';
+import { HPConnections, AllMinistries } from '../../../../build/constants';
+import { EventsService, SendMessageService, PageLayoutService } from '../../_services';
+import { FlashMessagesService } from 'angular2-flash-messages'; 
+import { first } from 'rxjs/operators';
 
 
 @Component({ 
@@ -18,6 +16,7 @@ import { PageLayoutService } from '../../services/page-layout.service';
 })
 
 export class FooterComponent implements OnInit {
+  contactMessage: FormGroup
   events: Event[];
   layout: any;
   connections = HPConnections;
@@ -38,7 +37,8 @@ export class FooterComponent implements OnInit {
     private sanitizer: DomSanitizer, 
     private _messageService: SendMessageService,
     private _flashMessagesService: FlashMessagesService,
-    private _pageService: PageLayoutService
+    private _pageService: PageLayoutService,
+    private formBuilder: FormBuilder
   ) { 
     this.getDevice();
   }
@@ -48,6 +48,38 @@ export class FooterComponent implements OnInit {
       this.loadEvents();
     }
     this.getCurrentBuild()
+    this.contactMessage = this.formBuilder.group({
+      name: ['', [Validators.required, Validators.minLength(2)]],
+      email: ['', [ Validators.required, Validators.pattern(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/) ] ],
+      phone: ['', [ Validators.required, Validators.pattern(/^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/) ] ],
+      message: ['', [ Validators.required, Validators.minLength(50), Validators.maxLength(500) ]  ],
+      website: ['', Validators.maxLength(0)]
+    })
+  }
+
+  get name() { return this.contactMessage.get('name') }
+  get email() { return this.contactMessage.get('email') }
+  get phone() { return this.contactMessage.get('phone') }
+  get message() { return this.contactMessage.get('message') }
+  get website() { return this.contactMessage.get('website') }
+  get f() { return this.contactMessage.controls }
+
+  onSubmit() {
+    if( this.contactMessage.invalid ) {
+      this._flashMessagesService.show('There was an error within the form.', { cssClass: 'alert-danger', timeout: 3000 });
+    }
+    this._messageService.sendMessage(this.contactMessage.value)
+      .pipe(first())
+        .subscribe(e => {
+          if(e.message == "Message Delivered"){
+            this._flashMessagesService.show('Your message has been sent', { cssClass: 'alert-info', timeout: 3000 });
+            this.hidden = true;
+            this.contactMessage.reset();
+          }        
+        }, err => {
+          this._flashMessagesService.show('Your message was not delivered. If this issue persists contact a member of the Hope Point staff.', { cssClass: 'alert-danger', timeout: 5000 });
+          console.log(err)
+        })
   }
 
   loadEvents(){
@@ -82,28 +114,6 @@ export class FooterComponent implements OnInit {
       this.downloadLink = 'desktop'
     }
   } 
-
-  message: Message = { 
-    name: '',
-    email: '',
-    message: '',
-    phone: '',
-    website: ''
-  };
-
-  sendMessage({value, valid}: {value: Message, valid: boolean}){
-    if(!valid){
-      console.log('Form is not valid');
-    } else {    
-      this._messageService.sendMessage(value).subscribe(e => {
-        if(e.message == "Message Delivered"){
-          this._flashMessagesService.show('Your message has been sent', { cssClass: 'alert-info', timeout: 3000 });
-          this.hidden = true;
-          this.form.reset();
-        }        
-      })      
-    }    
-  }
 
   returnLocation(location){
     if(location.length === undefined){

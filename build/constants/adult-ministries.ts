@@ -1,4 +1,4 @@
-import { Ministry } from '/models/ministries';
+import { Ministry } from '../models/ministries';
 
 export const AdultMinistries: Ministry[] = [
   {id: 0, name: "Hope Point Men", href: "mens", ImgUrl: "/assets/images/backgrounds/Mens_BG.jpg",logoUrl:"/assets/images/logos/Mens_Logo_350x350.png", MinistryGroup: 'Adult'},

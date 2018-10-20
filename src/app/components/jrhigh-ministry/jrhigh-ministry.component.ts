@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EventsService } from '../../services/events-service.service';
+import { EventsService } from '../../_services';
 import { DomSanitizer, SafeResourceUrl, SafeUrl, Meta, Title } from '@angular/platform-browser';
 
 import { Event } from '../../../../build/models/event'

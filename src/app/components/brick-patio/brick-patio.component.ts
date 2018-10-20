@@ -1,6 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { HPConnections } from '../../../../build/constants/connection-constants';
-import { EventsService } from '../../services/events-service.service';
+import { EventsService } from '../../_services';
 import { DomSanitizer, SafeResourceUrl, SafeUrl, Meta, Title } from '@angular/platform-browser';
 
 @Component({
