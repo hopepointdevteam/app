@@ -1,0 +1,40 @@
+.cal_box {
+	float: none;
+	min-height: 100px;
+	.date-as-calendar {
+		color: #000;
+		overflow: hidden;
+		width: 90px;
+		height: 100px;
+		// border: 1px solid #0579BE;
+		border-radius: 3px;
+		clear: none;
+		float: left;
+		background-color: #FFF;
+	}
+	.date-as-calendar .month,
+	.date-as-calendar .day,
+	.date-as-calendar .weekday {
+		text-align: center;
+		width: 100%;
+		display: block;
+		font-weight: 700;
+	}
+	.date-as-calendar .month {
+		font-size: 1rem;
+		font-family: 'Cen-Gothic';
+		background: #0579BE;
+		color: #FFF;
+		line-height: 40px;
+	}	
+	.date-as-calendar .day {
+		font-size: 1.6rem;
+	}	
+	.date-as-calendar .weekday {
+		font-size: .8em;
+	}	
+	.date-as-calendar .calendar-event-name {
+		margin-left: 100px;
+		font-weight: 700;
+	}
+}

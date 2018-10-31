@@ -29,7 +29,7 @@ export class NavbarComponent implements OnInit {
  
      const number = this.window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
      if(number < 100) {
-      this.NavClass = 'navbar navbar-expand-md navbar-dark fixed-top';
+      this.NavClass = 'navbar navbar-expand-lg navbar-dark fixed-top';
      } else {
       this.NavClass = 'navbar navbar-expand-lg navbar-dark fixed-top navbar-shrink';
      }
