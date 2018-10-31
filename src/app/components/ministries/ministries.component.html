@@ -1,0 +1,35 @@
+<header class="masthead" [ngStyle]="{ 'background-image' : 'url(/assets/images/extra_content/bible_pages_turning.jpg)'}">
+    <div class="container">
+      <div class="intro-text">
+        <div class="intro-lead-in">About Hope Point</div>
+        <div class="intro-heading text-uppercase">Ministries</div>
+        <a class="btn btn-primary btn-xl text-uppercase" (click)="scrollToElement(target)">Learn More</a>
+      </div>
+    </div>
+  </header>
+  <section class="bg-light" id="portfolio" #target>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading text-uppercase">Connect</h2>
+            <h3 class="section-subheading text-muted">Explore our ministries and groups.</h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 col-sm-6 portfolio-item" *ngFor="let item of ministries">
+            <a class="portfolio-link" data-toggle="modal" routerLink="{{item.route}}">
+              <div class="portfolio-hover">
+                <div class="portfolio-hover-content">
+                  <img [src]="icon" alt="Hope Point Logo" class="img-fluid">
+                </div>
+              </div>
+              <img class="img-fluid" [src]="base + item.image" alt="image.name">
+            </a>
+            <div class="portfolio-caption">
+              <h4>{{item.name}}</h4>
+              <!-- <p class="text-muted">Illustration</p> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>

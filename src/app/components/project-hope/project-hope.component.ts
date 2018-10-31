@@ -12,6 +12,8 @@ export class ProjectHopeComponent implements OnInit {
   events: Event[];
   expanded = [];
   base: any;
+  landing: string
+
   constructor(@Inject(WINDOW) private window: Window, 
     private _eventService: EventsService, 
     private sanitizer: DomSanitizer
@@ -28,6 +30,7 @@ export class ProjectHopeComponent implements OnInit {
     if(!this.events){
       this.loadEvents();
     }
+    this.landing = this.base + '/assets/images/extra_content/project_hope.jpg'
   }
 
   loadEvents(){
@@ -49,5 +52,30 @@ export class ProjectHopeComponent implements OnInit {
 
   sanatizeHtml(string){
     return this.sanitizer.bypassSecurityTrustHtml(string);
+  }
+  returnLocation(location){
+    if(location.length === undefined){
+      return ''
+    } else {
+      return '<strong>Where: </strong>' + location
+    }
+  }
+  returnContact(contact){
+    if(contact.length === undefined){
+      return ''
+    } else {
+      return '<a class="link" href="tel:' + contact + '">Call:&nbsp;<i class="fas fa-mobile-alt"></i></a> ' + contact
+    }
+  }
+
+  returnEmail(email, event){
+    if(email.length === undefined){
+      return ''
+    } else {
+      return '<a class="link" href="mailto:' + email + '?Subject=Information%20About%20' + event + '" target="_top">Email:&nbsp;<i class="fas fa-envelope"></i></a> ' + email
+    }
+  }
+  scrollToElement($element): void {
+    $element.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"})
   }
 }

@@ -1,65 +1,44 @@
-<section class="page-section pt-2 clearfix">
+<header class="masthead" [ngStyle]="{ 'background-image' : 'url('+ landing +')'}">
     <div class="container">
-      <div class="intro">
-        <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" [src]="base + '/assets/images/backgrounds/JrHigh_BG.jpg'" alt="Hope Point Junior High Ministry">
-        <div class="intro-text left-0 text-center bg-faded p-5 rounded">
-          <h2 class="section-heading mb-4">
-            <span class="section-heading-upper">Hope Point Nazarene</span>
-            <span class="section-heading-lower">Junior High Ministry</span>
-          </h2>
-          <p class="mb-3">
-              &#8220;Through the praise of children and infants you have established a stronghold against your enemies, to silence the foe and the avenger.&#8221; - Psalm 8:2
-          </p>
-        </div>
+      <div class="intro-text">
+        <div class="intro-lead-in">Hope Point Nazarene</div>
+        <div class="intro-heading text-uppercase">Jr. High Ministry</div>
+        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" (click)="scrollToElement(target)">Events</a>
       </div>
     </div>
-  </section>
-  <section class="page-section cta">
+  </header>
+  <section id="about" #target>
       <div class="container">
-        <div class="row">
-          <div class="col-xl-9 mx-auto">
-            <div class="cta-inner rounded">
-                <div class="col-xs-12 w-75 mx-auto">
-                    Our desire is to create a ‘family’ atmosphere, where Jr. high students have a place to call home. 6th - 8th grade is a crucial time in the life of a young person.  We want to walk alongside them in this new journey, and empower them to be bold and make life decisions based on the word of God.
-                </div>
-                <div class="col-xs-12 pt-5 text-center">
-                  <h3>View Our Junior High Calendar Below</h3>
-                </div>
+          <div class="row">
+            <div class="col-lg-12 text-center">
+              <h2 class="section-heading text-uppercase">About</h2>
+              <h3 class="section-subheading text-muted">Our desire is to create a ‘family’ atmosphere, where Jr. high students have a place to call home. 6th - 8th grade is a crucial time in the life of a young person.  We want to walk alongside them in this new journey, and empower them to be bold and make life decisions based on the word of God.</h3>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12">
+              <ul class="timeline">
+                <li *ngFor="let e of events; let index=index; let odd=odd; let even=even;" [ngClass]="odd ? 'timeline-inverted' : ''">
+                  <div class="timeline-image">
+                    <img class="rounded-circle img-fluid" src="" alt="">
+                  </div>
+                  <div class="timeline-panel">
+                    <div class="timeline-heading">
+                      <h4>{{e.date | date:"EEEE"}}, {{ e.date | date:"MMM" }} {{e.date | date:"dd"}}</h4>
+                    </div>
+                    <div class="timeline-body">
+                      <p class="text-muted" [innerHTML]="sanatizeHtml(e.event_description)"></p>
+                      <p class="text-muted"><strong>When: </strong>{{ e.date + 'T' + e.start_time | date:"shortTime" }}</p>
+                      <p class="text-muted" [innerHTML]="returnLocation(e.location)"></p>
+                      <p class="text-muted"><strong>Contact: </strong> {{e.leader_name}}</p>
+                      <p class="text-muted" [innerHtml]="returnContact(e.leader_phone)"></p>
+                      <p class="text-muted" [innerHTML]="returnEmail(e.leader_email, e.event_name)"></p>
+                    </div>
+                  </div>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-  <section class="page-section">
-    <div class="container">
-        <div class="card-columns">
-            <div class="card" *ngFor="let e of events; let i = index">
-              <div class="card-header p-0">
-                <div class="cal_box">
-                  <div class="date-as-calendar">
-                    <span class="month">{{ e.date | date:"MMM" }}</span>
-                    <span class="day"> {{e.date | date:"dd"}}</span>
-                    <span class="weekday">{{e.date | date:"EEEE"}}</span>
-                  </div>
-                  <span class="calendar-event-name">{{e.event_name}}</span>
-                </div>
-                
-              </div>
-              <div class="card-body">
-                
-                <div class="col-xs-12 text-left" [innerHTML]="sanatizeHtml(e.event_description)" ></div>
-                <div class="col-xs-12"><strong>When: </strong>{{ e.date + 'T' + e.start_time | date:"shortTime" }}</div>
-                <div class="col-xs-12" [innerHTML]="returnLocation(e.location)"></div>
-                <div class="col-xs-12"><strong>Contact: </strong><span (click)="expanded[i] = !expanded[i]">Show More <i class="fas fa-angle-down"></i></span>
-                  <div class="col-xs-12 pt-2" [hidden]="!expanded[i]">
-                      <p><strong>{{e.leader_name}}</strong></p>
-                      <p [innerHtml]="returnContact(e.leader_phone)"></p>
-                      <p [innerHTML]="returnEmail(e.leader_email, e.event_name)"></p>
-                  </div>
-                </div>
-          
-              </div>
-            </div>
-          </div>
-    </div>
   </section>
+

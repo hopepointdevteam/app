@@ -1,7 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
-
-@import "~bootstrap/scss/bootstrap";
-// @import "variables";
-@import "./styles/page";
-@import "./styles/footer";
+// Core variables and mixins
+@import "./styles/variables";
+@import "./styles/mixins";
+// Global CSS
+@import "./styles/global";
+// Components
 @import "./styles/navbar";
+@import "./styles/masthead";
+@import "./styles/services";
+@import "./styles/portfolio";
+@import "./styles/timeline";
+@import "./styles/team";
+@import "./styles/contact";
+@import "./styles/footer";

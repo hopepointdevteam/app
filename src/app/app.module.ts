@@ -7,8 +7,10 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FlashMessagesModule } from 'angular2-flash-messages';
+// Directives
+import { ModalComponent } from './_directives'
 // Services
-import { SermonsService, EventsService, SendMessageService, PageLayoutService } from './_services';
+import { SermonsService, EventsService, SendMessageService, PageLayoutService, ModalService } from './_services';
 
 //Components
 import { AppComponent } from './app.component';
@@ -57,7 +59,8 @@ import { JrhighMinistryComponent } from './components/jrhigh-ministry/jrhigh-min
     ProjectHopeComponent,
     KidsMinistryComponent,
     Club45MinistryComponent,
-    JrhighMinistryComponent  
+    JrhighMinistryComponent,
+    ModalComponent  
   ],
   imports:[
     CommonModule,
@@ -74,7 +77,8 @@ import { JrhighMinistryComponent } from './components/jrhigh-ministry/jrhigh-min
     SermonsService,
     EventsService,
     SendMessageService,
-    PageLayoutService
+    PageLayoutService,
+    ModalService
   ],
 })
 export class AppModule { }

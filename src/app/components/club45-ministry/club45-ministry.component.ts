@@ -14,6 +14,7 @@ export class Club45MinistryComponent implements OnInit {
   events: Event[];
   expanded = [];
   base: any;
+  landing: string
   constructor(@Inject(WINDOW) private window: Window, private _eventService: EventsService, private sanitizer: DomSanitizer, private meta: Meta, private title: Title) { }
 
   ngOnInit() {
@@ -25,8 +26,9 @@ export class Club45MinistryComponent implements OnInit {
       this.base = this.base[1] + '/' + this.base[2]
     }
     if(!this.events){
-      this.loadEvents();
+      this.loadEvents(); 
     }
+    this.landing = this.base + '/assets/images/backgrounds/Club45_BG.jpg'
   }
 
   loadEvents(){
@@ -73,4 +75,7 @@ export class Club45MinistryComponent implements OnInit {
     }
   }
 
+  scrollToElement($element): void {
+    $element.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"})
+  }
 }

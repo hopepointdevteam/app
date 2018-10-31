@@ -14,6 +14,7 @@ export class CruisersMinistryComponent implements OnInit {
   events: Event[];
   expanded = [];
   base: any;
+  landing: string
   constructor(@Inject(WINDOW) private window: Window, private _eventService: EventsService, private sanitizer: DomSanitizer, private meta: Meta, private title: Title) { }
 
   ngOnInit() {
@@ -27,6 +28,7 @@ export class CruisersMinistryComponent implements OnInit {
     if(!this.events){
       this.loadEvents();
     }
+    this.landing = this.base + '/assets/images/backgrounds/Senior_BG.jpg'
   }
 
   loadEvents(){
@@ -72,5 +74,7 @@ export class CruisersMinistryComponent implements OnInit {
       return '<a href="mailto:' + email + '?Subject=Information%20About%20' + event + '" target="_top">Email:&nbsp;<i class="fas fa-envelope"></i></a> ' + email
     }
   }
-
+  scrollToElement($element): void {
+    $element.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"})
+  }
 }

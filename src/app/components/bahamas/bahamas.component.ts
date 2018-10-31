@@ -8,6 +8,7 @@ import { Component, OnInit , Inject} from '@angular/core';
 })
 export class BahamasComponent implements OnInit {
   base: any;
+  landing: string
   constructor(@Inject(WINDOW) private window: Window, ) { }
 
   ngOnInit() {
@@ -18,7 +19,7 @@ export class BahamasComponent implements OnInit {
     } else {
       this.base = this.base[1] + '/' + this.base[2]
     }
-    
+    this.landing = this.base + '/assets/images/backgrounds/Bahamas_BG.jpg'
   }
 
 }

@@ -10,6 +10,7 @@ import { WorshipLeaders } from '../../../../build/constants/worship-leaders';
 export class HouseOfPrayerComponent implements OnInit {
   base: any;
   worshipLeaders = WorshipLeaders;
+  landing: string
 
   constructor(@Inject(WINDOW) private window: Window, ) { }
 
@@ -21,7 +22,10 @@ export class HouseOfPrayerComponent implements OnInit {
     } else {
       this.base = this.base[1] + '/' + this.base[2]
     }
+    this.landing = this.base + '/assets/images/extra_content/worship_2.jpg'
   }
-
+  scrollToElement($element): void {
+    $element.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"})
+  }
 
 }

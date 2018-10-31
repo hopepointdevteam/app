@@ -1,6 +1,9 @@
 import { WINDOW } from '@ng-toolkit/universal';
 import { Component, OnInit, HostListener , Inject} from '@angular/core';
 import { PageLayoutService } from '../../_services';
+import { navigation } from '../../_constants'
+
+const icon = "/assets/images/logos/website-logo-wht.png"
 
 @Component({
   selector: 'app-navbar',
@@ -12,13 +15,26 @@ export class NavbarComponent implements OnInit {
   TogglerClass = ''; 
   base: any;
   layout: any;
+
+  links = navigation
+  icon: string
+
   constructor(@Inject(WINDOW) private window: Window,  
     private _pageService: PageLayoutService
   ) { 
-    
+    this.NavClass = 'navbar navbar-expand-lg navbar-dark fixed-top';
   }
+  @HostListener("window:scroll", [])
+   onWindowScroll() {
  
-
+     const number = this.window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+     if(number < 100) {
+      this.NavClass = 'navbar navbar-expand-md navbar-dark fixed-top';
+     } else {
+      this.NavClass = 'navbar navbar-expand-lg navbar-dark fixed-top navbar-shrink';
+     }
+     
+   }
   ngOnInit() {
     this.base = this.window.location.href 
     this.base = /(http\:\/\/[a-z\.\:0-9]+)\/([a-z]+)*\/*/g.exec(this.base);
@@ -27,29 +43,7 @@ export class NavbarComponent implements OnInit {
     } else {
       this.base = this.base[1] + '/' + this.base[2]
     }
-    this.NavClass = 'navbar navbar-expand-md navbar-dark fixed-top';
-    this.TogglerClass =  'collapse navbar-collapse p-3';
-    this.getCurrentBuild()
+    this.icon = this.base + icon
    }
-
-  
-   @HostListener("window:scroll", [])
-   onWindowScroll() {
- 
-     const number = this.window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-     if(number < 10) {
-      this.NavClass = 'navbar navbar-expand-md navbar-dark fixed-top';
-     } else {
-      this.NavClass = 'navbar navbar-expand-md navbar-dark fixed-top dark';
-     }
-     
-   }
-
-   getCurrentBuild(){
-    const page = 'navbar'
-    this._pageService.getPageLayout(page).subscribe(e => {
-      this.layout = e
-    })
-  }
 
 }

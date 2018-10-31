@@ -67,4 +67,7 @@ export class BrickPatioComponent implements OnInit {
     }
   }
 
+  scrollToElement($element): void {
+    $element.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"})
+  }
 }

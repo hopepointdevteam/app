@@ -1,0 +1,108 @@
+<!-- Header -->
+<header class="masthead" [ngStyle]="{ 'background-image' : 'url('+ landing.image +')'}">
+    <div class="container">
+      <div class="intro-text">
+        <div class="intro-lead-in">{{landing.text_upper}}</div>
+        <div class="intro-heading text-uppercase">{{landing.text_lower}}</div>
+        <button class="btn btn-primary btn-lg" (click)="scrollToElement(target)">
+          Learn More
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Services -->
+  <section id="services" #target>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase">Services</h2>
+          <h3 class="section-subheading text-muted">Join us for worship!</h3>
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col-md-6">
+          <ul class="list-group mx-auto shadow-lg mt-5">
+            <li class="list-group-item" *ngFor="let item of services">{{item}}</li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <h3 class="text-center">House of Prayer</h3>
+          <a routerLink="['/house-of-prayer']">
+            <img class="img-fluid" [src]="base + '/assets/images/extra_content/worship_2.jpg'" alt="House of Prayer">
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Grid -->
+  <section class="bg-light" id="portfolio">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase">Connect</h2>
+          <h3 class="section-subheading text-muted">Explore our ministries and groups.</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 col-sm-6 portfolio-item" *ngFor="let item of ministries">
+          <a class="portfolio-link" data-toggle="modal" routerLink="{{item.route}}">
+            <div class="portfolio-hover">
+              <div class="portfolio-hover-content">
+                <img [src]="icon" alt="Hope Point Logo" class="img-fluid">
+              </div>
+            </div>
+            <img class="img-fluid" [src]="base + item.image" alt="image.name">
+          </a>
+          <div class="portfolio-caption">
+            <h4>{{item.name}}</h4>
+            <!-- <p class="text-muted">Illustration</p> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section class="bg-light" id="team">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase">Our Amazing Staff</h2>
+          <!-- <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3> -->
+        </div>
+      </div>
+      <div class="row">
+        <div [ngClass]="staff.length <= 4 ? 'col-md-3' : 'col-md-4'" *ngFor="let item of staff">
+          <div class="team-member">
+            <img class="mx-auto rounded-circle" [src]="base + item.ImgUrl" alt="{{item.name}}">
+            <h4>{{item.name}}</h4>
+            <p class="text-muted">{{item.title}}</p>
+            <ul class="list-inline social-buttons">
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fab fa-twitter"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="row">
+        <div class="col-lg-8 mx-auto text-center">
+          <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+        </div>
+      </div> -->
+    </div>
+  </section>  

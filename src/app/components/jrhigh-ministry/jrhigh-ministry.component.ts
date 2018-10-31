@@ -13,6 +13,7 @@ import { Event } from '../../../../build/models/event'
 export class JrhighMinistryComponent implements OnInit {
   events: Event[];
   expanded = [];
+  landing: string
   base: any;
   constructor(@Inject(WINDOW) private window: Window, private _eventService: EventsService, private sanitizer: DomSanitizer, private meta: Meta, private title: Title) { }
 
@@ -27,6 +28,7 @@ export class JrhighMinistryComponent implements OnInit {
     if(!this.events){
       this.loadEvents();
     }
+    this.landing = this.base + '/assets/images/backgrounds/JrHigh_BG.jpg'
   }
 
   loadEvents(){
@@ -72,5 +74,7 @@ export class JrhighMinistryComponent implements OnInit {
       return '<a href="mailto:' + email + '?Subject=Information%20About%20' + event + '" target="_top">Email:&nbsp;<i class="fas fa-envelope"></i></a> ' + email
     }
   }
-
+  scrollToElement($element): void {
+    $element.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"})
+  }
 }

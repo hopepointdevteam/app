@@ -13,6 +13,8 @@ import { Event } from '../../../../build/models/event'
 export class MensMinistryComponent implements OnInit {
   events: Event[];
   expanded = [];
+  verse: string
+  landing: string
   base: any;
   constructor(@Inject(WINDOW) private window: Window, private _eventService: EventsService, private sanitizer: DomSanitizer, private meta: Meta, private title: Title) { }
 
@@ -27,6 +29,8 @@ export class MensMinistryComponent implements OnInit {
     if(!this.events){
       this.loadEvents();
     }
+    this.landing = this.base + '/assets/images/backgrounds/Mens_BG.jpg'
+    this.verse = '"Be on your guard; stand firm in the faith; be courageous; be strong." - 1 Corinthians 16:13'
   }
 
   loadEvents(){
@@ -65,4 +69,15 @@ export class MensMinistryComponent implements OnInit {
     }
   }
 
+  returnLocation(location){
+    if(location.length === undefined){
+      return ''
+    } else {
+      return '<strong>Where: </strong>' + location
+    }
+  }
+
+  scrollToElement($element): void {
+    $element.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"})
+  }
 }

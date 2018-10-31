@@ -12,7 +12,7 @@ export class TableComponent implements OnInit {
   events: Event[];
   expanded = [];
   base: any;
-  
+  landing: string
   constructor(@Inject(WINDOW) private window: Window, private _eventService: EventsService, private sanitizer: DomSanitizer, private meta: Meta, private title: Title) { }
 
   ngOnInit() {
@@ -26,6 +26,7 @@ export class TableComponent implements OnInit {
     if(!this.events){
       this.loadEvents();
     }
+    this.landing = this.base + '/assets/images/backgrounds/TheTable_BG.jpg'
   }
 
   loadEvents(){
@@ -55,7 +56,13 @@ export class TableComponent implements OnInit {
       return '<a class="link" href="tel:' + contact + '">Call:&nbsp;<i class="fas fa-mobile-alt"></i></a> ' + contact
     }
   }
-
+  returnLocation(location){
+    if(location.length === undefined){
+      return ''
+    } else {
+      return '<strong>Where: </strong>' + location
+    }
+  }
   returnEmail(email, event){
     if(email.length === undefined){
       return ''
@@ -63,5 +70,7 @@ export class TableComponent implements OnInit {
       return '<a class="link" href="mailto:' + email + '?Subject=Information%20About%20' + event + '" target="_top">Email:&nbsp;<i class="fas fa-envelope"></i></a> ' + email
     }
   }
-
+  scrollToElement($element): void {
+    $element.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"})
+  }
 }

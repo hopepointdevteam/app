@@ -13,6 +13,7 @@ export class SermonsComponent implements OnInit {
   sermons: any;
   clips = [];
   base: any;
+  landing: string
   constructor(@Inject(WINDOW) private window: Window, private _sermonService: SermonsService, private sanitizer: DomSanitizer){
   }
   
@@ -27,6 +28,7 @@ export class SermonsComponent implements OnInit {
     if(!this.sermons){
       this.loadSermons();
     }
+    this.landing = this.base + '/assets/images/backgrounds/Sermons_BG.jpg'
   }
   loadSermons(){
     this._sermonService.getVideos().subscribe(sermons => {
@@ -38,5 +40,7 @@ export class SermonsComponent implements OnInit {
     return this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + url);
   }
 
-
+  scrollToElement($element): void {
+    $element.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"})
+  }
 }
