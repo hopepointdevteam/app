@@ -35,7 +35,7 @@ export class AboutComponent implements OnInit {
       "in one God—the Father, Son, and Holy Spirit.",
       "that the Old and New Testament Scriptures, given by plenary inspiration, contain all truth necessary to faith and Christian living.",
       "that man is born with a fallen nature, and is, therefore, inclined to evil, and that continually.",
-      "that the finally impenitent are hopelessly and eternally lost.",
+      "that those who fail to accept Jesus Christ as their savior are lost.",
       "that the atonement through Jesus Christ is for the whole human race; and that whosoever repents and believes on the Lord Jesus Christ is justified and regenerated and saved from the dominion of sin.",
       "that believers are to be sanctified wholly, subsequent to regeneration, through faith in the Lord Jesus Christ.",
       "that the Holy Spirit bears witness to the new birth, and also to the entire sanctification of believers.",
@@ -43,16 +43,19 @@ export class AboutComponent implements OnInit {
     ]
     this.list = [
       {
-        item : "UP:",
-        statement : "As a church, we are committed to become a spiritual family that worships the Father -- our foundation."
+        item : "WORSHIP:",
+        statement : "As a church, we are committed to become a spiritual family that worships the Father -- our foundation.",
+        class: "fas fa-place-of-worship fa-5x"
       },
       {
-        item : "IN:",
-        statement : "We develop meaningful relationships by doing life together dedicating ourselves to our church and church family."
+        item : "GATHER:",
+        statement : "We develop meaningful relationships by doing life together dedicating ourselves to our church and church family.",
+        class: "fas fa-users fa-5x"
       },
       {
-        item : "OUT",
-        statement : "We serve our community by fully engaging a broken world with the love of Jesus. We show love by kneeling down to those in need."
+        item : "LOVE:",
+        statement : "We serve our community by fully engaging a broken world with the love of Jesus. We show love by kneeling down to those in need.",
+        class: "fas fa-heart fa-5x"
       }
     ]
   }

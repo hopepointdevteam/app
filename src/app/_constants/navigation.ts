@@ -1,8 +1,8 @@
 export const navigation = [
-  {
-    title :"Welcome",
-    route : "brick-patio"
-  },
+  // {
+  //   title :"Welcome",
+  //   route : "brick-patio"
+  // },
   {
     title :"About",
     route : "about-hope-point"
@@ -11,10 +11,10 @@ export const navigation = [
     title :"Ministries",
     route : "hope-point-ministries"
   },
-  {
-    title :"Outreach",
-    route : "missions/outreach"
-  },
+  // {
+  //   title :"Outreach",
+  //   route : "missions/outreach"
+  // },
   {
     title :"Table",
     route : "the-table"

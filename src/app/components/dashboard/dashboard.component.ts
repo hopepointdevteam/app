@@ -40,16 +40,15 @@ export class DashboardComponent implements OnInit {
       image : this.base + "assets/images/backgrounds/landing.jpg",
       image_alt : "Welcome Home",
       text_upper : "Hope Point Nazarene",
-      text_lower : "Welcome Home",
+      text_lower : "You are Loved",
       verse : "\"They committed themselves to the teaching of the apostles, the life together, the common meal, and the prayers.\" - Acts 2:42",
       button_text : "About Hope Point",
       route : "/about-hope-point"
     }
     this.services = [
-      "Saturday -- House of Prayer @ 6:00pm",
       "Sunday -- Service @ 9:00am",
       "Sunday -- Service @ 11:00am",
-      "Wednesday -- Small Groups @ 6:00pm"      
+      "Wednesday -- Small Groups @ 6:30pm"      
     ]
   }
 

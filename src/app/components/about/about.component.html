@@ -1,19 +1,74 @@
 <header class="masthead" [ngStyle]="{ 'background-image' : 'url('+ landing +')'}">
     <div class="container">
       <div class="intro-text">
-        <div class="intro-lead-in">About Hope Point</div>
-        <div class="intro-heading text-uppercase">Statement of Belief</div>
-        <a class="btn btn-primary btn-xl text-uppercase" (click)="scrollToElement(target)">Learn More</a>
+        <div class="intro-lead-in">About Us</div>
+        <div class="row mb-5">
+          <div class="col-lg-6 pr-5">
+            <h2 class="text-left text-uppercase">A Church for the broken</h2>
+            <h5 class="text-justify">
+              Hope Point is a church for people of all walks of life. Imagine a community with one
+              focus; bringing our city closer to God. This is what Hope Point stands for.
+            </h5>
+            <hr>
+            <h5 class="text-justify">
+              We are a multi-generatoinal, multi-ethnic, multi-cultural church located in Yuba City, California.
+              Our church has grown to be represented in Live Oak, Sacramento, the Bahamas, and globaly through
+              our missionaries.
+            </h5>
+          </div>
+          <div class="col-lg-6 pl-5">
+            <h2 class="text-left text-uppercase">That loves jesus</h2>
+            <h5 class="text-justify">
+              Jesus promises an abundant, overflowing, changing life. It is not a life free from sorrow or pain, but
+              equiped to handle the everyday situations we encounter.
+            </h5>
+            <hr>
+            <h5 class="text-justify">
+              Hope Point wants to praise Jesus and those who choose to follow and fall in love with Him.
+            </h5>
+          </div>
+        </div>        
+        <a class="btn btn-primary btn-xl text-uppercase" (click)="scrollToElement(target)">Our Values</a>
       </div>
     </div>
   </header>
 
-  
+  <!-- About -->
   <section id="about" #target>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading text-uppercase">Values</h2>
+            <h3 class="section-subheading text-muted">Live out the 3 dimensions of Jesus&rsquo;.</h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <ul class="timeline">
+              <li *ngFor="let item of list; let index=index; let odd=odd; let even=even;" [ngClass]="odd ? 'timeline-inverted' : ''">
+                <div class="timeline-image">
+                  <i class="pt-4" [ngClass]="item.class"></i>
+                </div>
+                <div class="timeline-panel">
+                  <div class="timeline-heading">
+                    <h4>{{item.item}}</h4>
+                  </div>
+                  <div class="timeline-body">
+                    <p class="text-muted">{{item.statement}}</p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+  <section id="beliefs" style="background-color: rgba(191, 191, 191, .5)">
       <div class="container">
           <div class="row">
             <div class="col-lg-12 text-center">
-              <h2 class="section-heading text-uppercase">About</h2>
+              <h2 class="section-heading text-uppercase">Beliefs</h2>
               <h3 class="section-subheading text-muted">Our shared statement of belief.</h3>
             </div>
           </div>
@@ -39,36 +94,7 @@
         </div>
   </section>
 
-  <!-- About -->
-  <section id="about">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase">Mission</h2>
-          <h3 class="section-subheading text-muted">Live out the 3 dimensions of Jesus&rsquo;.</h3>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-12">
-          <ul class="timeline">
-            <li *ngFor="let item of list; let index=index; let odd=odd; let even=even;" [ngClass]="odd ? 'timeline-inverted' : ''">
-              <div class="timeline-image">
-                <img class="rounded-circle img-fluid" src="" alt="">
-              </div>
-              <div class="timeline-panel">
-                <div class="timeline-heading">
-                  <h4>{{item.item}}</h4>
-                </div>
-                <div class="timeline-body">
-                  <p class="text-muted">{{item.statement}}</p>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
+  
 
   <!-- Contact -->
   <section id="contact">
